@@ -9,4 +9,4 @@ Made with MEAN stack:
 Francois Crispo-Sauve
 
 ## Remote deployment
-secretsanta-fcs.herokuapp.com
+[secretsanta-fcs](secretsanta-fcs.herokuapp.com)
