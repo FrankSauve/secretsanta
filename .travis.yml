@@ -1,5 +1,17 @@
-
 language: node_js
 node_js:
   - "4.0"
-
+script:
+  - cd server
+install:
+  - npm install
+script:
+  - npm test
+  
+script:
+  - cd ../angular-src/src
+install:
+  - npm install
+script:
+  - npm test
+  
