@@ -1,0 +1,31 @@
+<div class="jumbotron text-center">
+  <h1>Secret Santa</h1>
+  <p class="lead">Draw names for your next gift exchange! </p>
+  <div>
+    <a *ngIf="!authService.loggedIn()" class="btn btn-primary" [routerLink]="['/register']">Register</a>
+    <a class="btn btn-default" [routerLink]="['/dashboard']">Start Exchange now!</a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-3">
+    <h3>No one will draw their own names</h3>
+    <p>Unlike drawing names in a hat, this app will never make you draw your own name!</p>
+  </div>
+  <div class="col-md-3">
+    <h3>Exclude unwanted name combinations</h3>
+    <p>Avoid couples getting each other's names!</p>
+  </div>
+  <div class="col-md-3">
+    <h3>Sends response by Email</h3>
+    <p>Other's will never know what name you drew!</p>
+  </div>
+  <div class="col-md-3">
+    <h3>Sign up to faciliate your exchanges</h3>
+    <p>Every name you have picked will be stored in your profile!</p>
+  </div>
+  
+  <div class="img-container">
+    <img src="../../../assets/santa.png" />
+  </div>
+</div>
