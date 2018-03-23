@@ -50,7 +50,7 @@ app.use('/exchanges', require('./routes/exchanges'));
 // });
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/../angular-src/src/dist/index.html'));
+    res.sendFile(path.join(__dirname, '/src/dist/index.html'));
 });
 
 // Start server
