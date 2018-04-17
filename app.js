@@ -1,13 +1,13 @@
 const express = require('express'),
-path = require('path'),
-bodyParser = require('body-parser'),
-cors = require('cors'),
-passport = require('passport'),
-mongoose = require('mongoose'),
-config = require('./config/database');
+    path = require('path'),
+    bodyParser = require('body-parser'),
+    cors = require('cors'),
+    passport = require('passport'),
+    mongoose = require('mongoose'),
+    config = require('./config/database');
 
 // Connecting to database
-mongoose.connect(config.database); 
+mongoose.connect(config.database);
 
 // Successfully connects 
 mongoose.connection.on('connected', () => {

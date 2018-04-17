@@ -3,7 +3,7 @@
   <p class="lead">Draw names for your next gift exchange! </p>
   <div>
     <a *ngIf="!authService.loggedIn()" class="btn btn-primary" [routerLink]="['/register']">Register</a>
-    <a class="btn btn-default" [routerLink]="['/dashboard']">Start Exchange now!</a>
+    <a class="btn btn-light" [routerLink]="['/dashboard']">Start Exchange now!</a>
   </div>
 </div>
 
@@ -25,7 +25,6 @@
     <p>Every name you have picked will be stored in your profile!</p>
   </div>
   
-  <div class="img-container">
-    <img src="../../../assets/santa.png" />
-  </div>
+  <img src="../../../assets/santa.png" />
+
 </div>

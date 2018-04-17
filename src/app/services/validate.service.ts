@@ -9,10 +9,17 @@ export class ValidateService {
   constructor(private http: Http) { }
 
   validateRegister(user) {
-    if (user.name == undefined || user.username == undefined || user.email == undefined || user.password == undefined) {
+    if (user.name === undefined || user.username === undefined || user.email === undefined || user.password === undefined) {
       return false;
+    } else {
+      return true;
     }
-    else {
+  }
+
+  validateUsername(username) {
+    if (username.length < 6 || username.length > 20) {
+      return false;
+    } else {
       return true;
     }
   }
@@ -23,35 +30,31 @@ export class ValidateService {
   }
 
   validateExchange(exchangeName, recipients) {
-    if (exchangeName == undefined) {
+    if (exchangeName === undefined) {
       return ['exchangeNameRequired', '0'];
     }
-    for (var i = 0; i < recipients.length; i++) {
-      var index = i.toString();
-      if (recipients[i].type == 'user') {
-        if (recipients[i].username == '') {
+    for (let i = 0; i < recipients.length; i++) {
+      const index = i.toString();
+      if (recipients[i].type === 'user') {
+        if (recipients[i].username === '') {
           return ['usernameRequired', index];
-        }
-        else {
+        } else {
           return ['valid', '0'];
         }
-      }
-      else {
-        if (recipients[i].name == '') {
+      } else {
+        if (recipients[i].name === '') {
           return ['nameRequired', index];
         }
-        if (recipients[i].email == '') {
+        if (recipients[i].email === '') {
           return ['emailRequired', index];
         }
         if (!this.validateEmail(recipients[i].email)) {
           return ['emailInvalid', index];
-        }
-        else {
+        } else {
           return ['valid', '0'];
         }
       }
     }
-
   }
 
   validateUser(recipient) {

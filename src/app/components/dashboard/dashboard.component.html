@@ -11,7 +11,7 @@
     <div *ngFor="let recipient of recipients; let i = index;" [attr.data-index]="i">
 
       <!--Recipient label-->
-      <label class="recipient-label">Recipient {{i + 1}}</label>
+      <h3 class="recipient-label">Santa {{i + 1}}</h3>
 
       <p>User or guest?</p>
       <!--Dropdown: User or Guest-->
@@ -39,7 +39,7 @@
     
     
     <!--Add recipient button-->
-    <button class="btn btn-primary add-recipient" (click)="addRecipient()">Add Recipient</button>
+    <button class="btn btn-primary add-recipient" (click)="addRecipient()">Add Santa</button>
     <button class="btn btn-primary submit" (click)="onExchangeSubmit()">Submit</button>
   </div>
 </form>

@@ -13,9 +13,9 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
   exchangeName: String;
-  recipients: recipient[] = [];
-  users: user[] = [];
-  guests: guest[] = [];
+  recipients: Recipient[] = [];
+  users: User[] = [];
+  guests: Guest[] = [];
 
   constructor(
     private validateService: ValidateService,
@@ -35,54 +35,49 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
-  validateForm(){
-   
-    var err = this.validateService.validateExchange(this.exchangeName, this.recipients)[0];
-    var index = this.validateService.validateExchange(this.exchangeName, this.recipients)[1];
-      if(err == 'exchangeNameRequired'){
+  validateForm() {
+    const err = this.validateService.validateExchange(this.exchangeName, this.recipients)[0];
+    const index = this.validateService.validateExchange(this.exchangeName, this.recipients)[1];
+      if (err === 'exchangeNameRequired') {
         this.flashMessage.show('Please enter an exchange name', {cssClass: 'alert-danger', timeout: 5000});
         return false;
       }
-      if(err == 'usernameRequired'){
-        this.flashMessage.show('Please enter a username for recipient ' + (parseInt(index) + 1), {cssClass: 'alert-danger', timeout: 5000});
+      if (err === 'usernameRequired') {
+        this.flashMessage.show('Please enter a username for recipient ' + (parseInt(index, 10) + 1), {cssClass: 'alert-danger', timeout: 5000});
         return false;
       }
-      if(err == 'nameRequired'){
-        this.flashMessage.show('Please enter a name for recipient ' + (parseInt(index) + 1), {cssClass: 'alert-danger', timeout: 5000});
+      if (err === 'nameRequired') {
+        this.flashMessage.show('Please enter a name for recipient ' + (parseInt(index, 10) + 1), {cssClass: 'alert-danger', timeout: 5000});
         return false;
       }
-      if(err == 'emailRequired'){
-        this.flashMessage.show('Please enter an email for recipient' + (parseInt(index) + 1), {cssClass: 'alert-danger', timeout: 5000});
+      if (err === 'emailRequired') {
+        this.flashMessage.show('Please enter an email for recipient' + (parseInt(index, 10) + 1), {cssClass: 'alert-danger', timeout: 5000});
         return false;
       }
-      if(err == 'emailInvalid'){
-        this.flashMessage.show('Please enter a valid email for recipient ' + (parseInt(index) + 1), {cssClass: 'alert-danger', timeout: 5000});
+      if (err === 'emailInvalid') {
+        this.flashMessage.show('Please enter a valid email for recipient ' + (parseInt(index, 10) + 1), {cssClass: 'alert-danger', timeout: 5000});
         return false;
       }
   }
 
 
 
-  onExchangeSubmit(){
+  onExchangeSubmit() {
     console.log('Before validation');
     this.validateForm();
-    console.log("After validation");
+    console.log('After validation');
 
-    for(var i = 0; i < this.recipients.length; i++){
-      if(this.recipients[i].type == 'user'){
+    for (let i = 0; i < this.recipients.length; i++) {
+      if (this.recipients[i].type === 'user') {
         this.users.push(this.recipients[i]);
-      }
-      else{
+      } else {
         this.guests.push(this.recipients[i]);
       }
     }
-    
-    console.log("Before adding exchange");
-    
-
+    console.log('Before adding exchange');
   }
 
-  addRecipient(){
+  addRecipient() {
     this.recipients.push({
       type: '',
       username: '',
@@ -92,17 +87,16 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  isUser(i){
-    if(this.recipients[i].type == 'user'){
+  isUser(i) {
+    if (this.recipients[i].type === 'user') {
       return true;
-    }
-    else{
+    } else {
       return false;
     }
   }
 }
 
-interface recipient{
+interface Recipient {
   type: String;
   username: String;
   name: String;
@@ -110,14 +104,14 @@ interface recipient{
   _id: String;
 }
 
-interface user{
+interface User {
   username: String;
   name: String;
   email: String;
   _id: String;
 }
 
-interface guest{
+interface Guest {
   name: String;
   email: String;
   _id: String;

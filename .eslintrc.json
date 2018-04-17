@@ -1,0 +1,10 @@
+{
+    "extends": "./node_modules/eslint-config-google/index.js",
+    "parserOptions": {
+        "ecmaVersion": 6
+    },
+    "rules":{
+    "linebreak-style": 0,
+    "new-cap": "off"
+  }
+}

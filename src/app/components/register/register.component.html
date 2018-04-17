@@ -1,5 +1,5 @@
 <h2 class="page-header">Register</h2>
-<form (submit)="onRegisterSubmit()">
+<form class="needs-validation" novalidate (submit)="onRegisterSubmit()">
   <div class="form-group">
     <label>Name</label>
     <input type="text" [(ngModel)]="name" name="name" class="form-control">
@@ -18,3 +18,4 @@
   </div>
   <input type="submit" class="btn btn-primary" value="Submit">
 </form>
+ 

@@ -1,9 +1,9 @@
 const express = require('express'),
-users = express.Router(),
-User = require('../models/user'),
-passport = require('passport'),
-jwt = require('jsonwebtoken'),
-config = require('../config/database');
+    users = express.Router(),
+    User = require('../models/user'),
+    passport = require('passport'),
+    jwt = require('jsonwebtoken'),
+    config = require('../config/database');
 
 
 /**
@@ -91,7 +91,7 @@ users.get('/:id', passport.authenticate('jwt', { session: false }), (req, res) =
 users.delete('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
     User.deleteUserById(req.params.id, (err, user) => {
         if (err) throw err;
-        res.json({success: true});
+        res.json({ success: true });
     });
 });
 
