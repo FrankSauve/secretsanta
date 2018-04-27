@@ -1,11 +1,11 @@
 {
-  "name": "MERN-boilerplate",
+  "name": "Secretsanta",
   "version": "1.0.0",
-  "description": "MERN stack project boilerplate",
-  "author": "Eugene Cheung",
+  "description": "Secretsanta generator",
+  "author": "FrankSauve",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arkon/MERN-boilerplate.git"
+    "url": ""
   },
   "license": "MIT",
   "private": true,
