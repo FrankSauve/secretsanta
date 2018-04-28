@@ -7,5 +7,52 @@ body{
     padding: 0px;
 }
 
+//--------------NAVBAR START--------------
+.navbar-default{
+    background: firebrick;
+    border-color: darkslategrey;
+}
 
+#navBrand{
+    color: whitesmoke;
+}
 
+#navLogin{
+    color:whitesmoke;
+}
+
+#navLogin:hover{
+    color:lightgrey;
+}
+
+#navStartExchange{
+    color:whitesmoke;
+}
+
+#navStartExchange:hover{
+    color:lightgrey;
+}
+
+#navName{
+    color:whitesmoke
+}
+
+#navName:hover{
+    color:lightgrey;
+    text-decoration: none;
+}
+
+.nav-button{
+    margin-right: 1em;
+    padding: 0em;
+    background-color: transparent;
+}
+.nav-button:hover{
+    text-decoration: none;
+}
+
+#btnLogin{
+    background-color:firebrick;
+    color:whitesmoke;
+}
+//--------------NAVBAR END--------------
