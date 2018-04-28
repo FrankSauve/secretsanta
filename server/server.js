@@ -6,6 +6,9 @@ const path = require('path');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
+const cors = require('cors');
+const passport = require('passport');
+const bodyParser = require('body-parser');
 
 const config = require('./config/database.js');
 const webpackConfig = require('../webpack.config');
@@ -17,17 +20,31 @@ const port  = process.env.PORT || 8080;
 // Configuration
 // ================================================================================================
 
-// Set up Mongoose
-mongoose.connect(isDev ? config.db_dev : config.db);
-mongoose.Promise = global.Promise;
+// Connecting to database
+mongoose.connect(config.database);
+
+// Successfully connects 
+mongoose.connection.on('connected', () => {
+    console.log('Connected to database ' + config.database)
+});
+
+// Connection error
+mongoose.connection.on('error', (err) => {
+  console.log('Database error: ' + err)
+});
 
 const app = express();
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+
+//Middleware
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+require('./config/passport')(passport);
+
 
 // API routes
-// require('./routes')(app);
-
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/guests', require('./routes/api/guests'));
 app.use('/api/exchanges', require('./routes/api/exchanges'));

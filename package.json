@@ -1,5 +1,5 @@
 {
-  "name": "Secretsanta",
+  "name": "secretsanta",
   "version": "1.0.0",
   "description": "Secretsanta generator",
   "author": "FrankSauve",
@@ -11,7 +11,8 @@
   "private": true,
   "scripts": {
     "start": "webpack -p --progress --profile --colors && node server",
-    "start:dev": "node server"
+    "start:dev": "node server",
+    "test": "mocha ./server/test"
   },
   "engines": {
     "node": ">=6"
@@ -23,6 +24,9 @@
     "autoprefixer": "^8.2.0",
     "babel-loader": "^8.0.0-beta.2",
     "bcryptjs": "^2.4.3",
+    "bootstrap": "^4.1.0",
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
     "connect-history-api-fallback": "^1.5.0",
     "copy-webpack-plugin": "^4.5.1",
     "cors": "^2.8.4",
@@ -31,6 +35,7 @@
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.1.0",
     "jsonwebtoken": "^8.2.1",
+    "mocha": "^5.1.1",
     "mongoose": "^5.0.11",
     "node-sass": "^4.7.2",
     "nodemon": "^1.17.2",
@@ -38,6 +43,7 @@
     "passport-jwt": "^4.0.0",
     "postcss-loader": "^2.1.3",
     "react": "^16.2.0",
+    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.2.0",
     "react-hot-loader": "^4.0.0",
     "react-router": "^4.2.0",
