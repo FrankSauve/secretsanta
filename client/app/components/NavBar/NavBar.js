@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Navbar, Nav, NavDropdown, NavItem, MenuItem } from 'react-bootstrap'
 import LoginModal from '../Login/LoginModal';
+import Logout from '../Login/Logout';
+import Gravatar from './Gravatar';
+import auth from '../../util/auth';
 
 export default class NavBar extends Component {
   render() {
@@ -15,16 +18,20 @@ export default class NavBar extends Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav>
-            <NavItem eventKey={1} href="#">
-              <strong id="navStartExchange">Start Exchange</strong>
-            </NavItem>
+              <NavItem eventKey={1} href="#">
+                <strong id="navStartExchange">Start Exchange</strong>
+              </NavItem>
             </Nav>
-              <Navbar.Text pullRight>
-                <Navbar.Link href="#" id="navName"><strong>Mark Otto</strong></Navbar.Link>
-              </Navbar.Text>
-              <LoginModal />
-            </Navbar.Collapse>
-        </Navbar>;
+            <Nav pullRight>
+              {auth.isLoggedIn() ? <Gravatar id="gravatar"/> : null}
+            </Nav>
+            <Navbar.Text pullRight>
+              {auth.isLoggedIn() ? <Navbar.Link href="#" id="navName">{localStorage.getItem('name')}</Navbar.Link> : null}
+            </Navbar.Text>
+            {auth.isLoggedIn() ? null : <LoginModal />}
+            {auth.isLoggedIn() ? <Logout /> : null}
+          </Navbar.Collapse>
+        </Navbar>
       </div>
     )
   }

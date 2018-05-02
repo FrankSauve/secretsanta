@@ -19,6 +19,10 @@ body{
     color:whitesmoke;
 }
 
+#navLogout{
+    color:whitesmoke;
+}
+
 #navLogin:hover{
     color:lightgrey;
 }
@@ -52,5 +56,10 @@ body{
 #btnLogin{
     background-color:firebrick;
     color:whitesmoke;
+}
+
+#gravatar{
+    height: 40px;
+    margin: 10px;
 }
 //--------------NAVBAR END--------------
