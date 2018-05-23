@@ -4,17 +4,16 @@ import { FormGroup, FormControl, ControlLabel, HelpBlock, Button } from 'react-b
 import axios from 'axios';
 import AlertContainer from 'react-alert';
 import { Redirect } from 'react-router-dom';
-
 import auth from '../../util/auth';
 
 const regexAlphaNum = /^[a-zA-Z0-9]{4,20}$/;
 
-//Options for react-alert
-const alertOptions={
+// Options for react-alert
+const alertOptions = {
   position: 'bottom center'
 }
 
-export default class componentName extends Component {
+export default class LoginForm extends Component {
 
   constructor(props) {
     super(props)
@@ -34,7 +33,7 @@ export default class componentName extends Component {
   }
   
   handleChange(e){
-    this.setState({ [e.target.name]: e.target.value })
+    this.setState({ [e.target.name]: e.target.value });
     this.validateOnChange(e.target.name, e.target.value);
   }
 
@@ -73,7 +72,6 @@ export default class componentName extends Component {
       })
       .then(res => {
         if(res.data.success){
-          console.log(res.data.user)
           const token = res.data.token;
           const name = res.data.user.name;
           const email = res.data.user.email;

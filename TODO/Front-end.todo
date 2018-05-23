@@ -15,12 +15,13 @@ Navbar:
         ✔ Clear the localstorage @done(18-05-02 14:45)
         ✔ Redirect to home @done(18-05-02 16:12)
     Register:
-        ☐ Register link to open modal
-        ☐ Register form in the modal
-        ☐ Register form validation
-        ☐ Makes call to API
-        ☐ API Validation
-        ☐ Hide when logged in
+        ✔ Register link to open modal @done(18-05-23 11:55)
+        ✔ Register form in the modal @done(18-05-23 11:56)
+        ✔ Register form validation @done(18-05-23 12:33)
+            ✔ Need to fix password confirmation bug where it validates the previous input @done(18-05-23 12:33)
+        ✔ Make calls to API @done(18-05-23 12:50)
+        ✔ API Validation @done(18-05-23 12:50)
+        ✔ Hide when logged in @done(18-05-23 12:50)
     Profil:
         Gravatar:
             ✔ Add image in the top right @done(18-05-02 16:59)

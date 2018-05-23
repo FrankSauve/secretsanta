@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Navbar, Nav, NavDropdown, NavItem, MenuItem } from 'react-bootstrap'
 import LoginModal from '../Login/LoginModal';
+import RegisterModal from '../Register/RegisterModal';
 import Logout from '../Login/Logout';
 import Gravatar from './Gravatar';
 import auth from '../../util/auth';
@@ -28,7 +29,8 @@ export default class NavBar extends Component {
             <Navbar.Text pullRight>
               {auth.isLoggedIn() ? <Navbar.Link href="#" id="navName">{localStorage.getItem('name')}</Navbar.Link> : null}
             </Navbar.Text>
-            {auth.isLoggedIn() ? null : <LoginModal />}
+            {auth.isLoggedIn() ? null : <LoginModal/>}
+            {auth.isLoggedIn() ? null : <RegisterModal/>}
             {auth.isLoggedIn() ? <Logout /> : null}
           </Navbar.Collapse>
         </Navbar>

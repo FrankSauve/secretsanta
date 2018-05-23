@@ -26,7 +26,10 @@ users.post('/register', (req, res) => {
                     res.json({ success: false, msg: "Failed to register user" });
                 }
                 else {
-                    res.json({ success: true, msg: "User registered" });
+                    const token = jwt.sign(user.toJSON(), config.secret, {
+                        expiresIn: 604800 // 1 week
+                    });
+                    res.json({ success: true, msg: "User registered", token: 'JWT ' + token, user: user });
                 }
             });
         }

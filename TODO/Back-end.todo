@@ -1,0 +1,3 @@
+Register:
+    ✔ Return user on register so that front-end can log-in right away @done(18-05-23 12:49)
+    ✔ Return jwt token @done(18-05-23 12:50)
